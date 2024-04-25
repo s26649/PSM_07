@@ -8,6 +8,7 @@ public class Main {
         Matrix matrix = new Matrix(40, 200, 150, 50, 100);
         double[] solution = Gauss.solve(matrix.getMatrix(), matrix.getVector());
 
+        // csv
         try (PrintWriter out = new PrintWriter(new FileWriter("solution.csv"))) {
             for (int i = 39; i >= 0; i--) {
                 StringBuilder line = new StringBuilder();

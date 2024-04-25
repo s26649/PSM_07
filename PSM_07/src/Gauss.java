@@ -4,6 +4,7 @@ public class Gauss {
     private static final double EPSILON = 1e-10;
 
     public static double[] solve(double[][] A, double[] B) {
+        // eliminacja Gaussa
         int n = A.length;
         for (int p = 0; p < n; p++) {
             int max = findPivot(A, p);
@@ -17,6 +18,7 @@ public class Gauss {
     }
 
     private static int findPivot(double[][] A, int p) {
+        // znalezienie pivotu
         int max = p;
         for (int i = p + 1; i < A.length; i++) {
             if (Math.abs(A[i][p]) > Math.abs(A[max][p])) {
@@ -27,6 +29,7 @@ public class Gauss {
     }
 
     private static void swapRows(double[][] A, double[] B, int p, int max) {
+        // zamiana wierszy
         double[] temp = A[p];
         A[p] = A[max];
         A[max] = temp;
@@ -36,6 +39,7 @@ public class Gauss {
     }
 
     private static void eliminate(double[][] A, double[] B, int p) {
+        // eliminacja wierszy ponizej pivotu
         int n = A.length;
         for (int i = p + 1; i < n; i++) {
             double alpha = A[i][p] / A[p][p];
@@ -47,6 +51,7 @@ public class Gauss {
     }
 
     private static double[] backSubstitution(double[][] A, double[] B) {
+        // podstawienie
         int n = A.length;
         double[] x = new double[n];
         for (int i = n - 1; i >= 0; i--) {

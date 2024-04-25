@@ -29,10 +29,12 @@ public class Matrix {
 
     private void processCell(int i, int j, int index) {
         count(i, j, index);
-        matrix[index][index] = -4;  // Each cell corresponds to -4 in its position in the matrix
+        matrix[index][index] = -4;
     }
 
     private void count(int i, int j, int index) {
+        // wpływ sąsiednich komorek
+        
         // up
         if (i == size - 1) {
             vector[index] += up;
